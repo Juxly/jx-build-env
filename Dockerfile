@@ -1,5 +1,6 @@
 FROM atlassian/default-image:1
 
+RUN echo test
 # install pip
 RUN apt-get install -y \
   python \
@@ -10,7 +11,7 @@ RUN pip install awscli --upgrade
 RUN aws --version
 
 # install kubectl
-ADD https://storage.googleapis.com/kubernetes-release/release/v1.6.4/bin/linux/amd64/kubectl \
+ADD https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl \
   /usr/local/bin/kubectl
 RUN chmod +x /usr/local/bin/kubectl
 RUN kubectl version --client
